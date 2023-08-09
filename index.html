@@ -1,0 +1,70 @@
+<html>
+	<head>
+	<title> Ice Cream Toppings By Aman </title>
+	<style> 
+		* { font-size : 40px; }
+		body {background-image:url("im1.jpg");}
+		.w3-container{ background-color:orange; height:530px;width:800px;opacity:0.7; }
+		#btn { background-color:brown;color:white; }
+	</style>
+
+	<script>
+		function show() {
+		event.preventDefault();
+		let name = document.getElementById("name");
+		if(name.value == "") {
+				alert("Flavour name cannot be empty");
+				ans.innerHTML = "";
+				name.focus();
+				return;
+			} else if(name.value.trim() == "") {
+				alert("Flavour name cannot be only spaces");
+				ans.innerHTML = "";
+				name.focus();
+				return;
+			}
+			else if(!name.value.match(/^[A-Za-z ]+$/)) {
+				alert("Flavour should contain only alphabets");
+				ans.innerHTML = "";
+				name.focus();
+				return;
+			}
+			let or = document.getElementById("or");
+			let tf = document.getElementById("tf");
+			let cs = document.getElementById("cs");
+			let sp = document.getElementById("sp");
+			let ans = document.getElementById("ans");
+			
+			let toppings = "";
+			if(or.checked)		toppings+=" Oreo ";
+			if(tf.checked)		toppings+=" Tuity Fruity ";
+			if(cs.checked)		toppings+=" Chocolate Syrup ";
+			if(sp.checked)		toppings+=" Sprinkles ";
+			let msg = "Flavour : " + name.value +" & Toppings : " + toppings;
+			ans.innerHTML = msg;
+		}
+	</script>
+	</head>
+	<body>
+	<center>
+		<br> <br>
+		
+		<form onsubmit="show()">
+			<div class="w3-container" id="c1">
+			<h1 style="opacity:0.9; font-size:65px;font-style:italic"> Ice Cream App </h1>
+			<input type="text" placeholder="Enter icecream flavour" id="name" />
+			<br><br>
+			<input type="checkbox" id="or" /> Oreo
+			<input type="checkbox" id="tf" /> Tuity Fruity
+			<input type="checkbox" id="cs" /> Chocolate Syrup
+			<input type="checkbox" id="sp" /> Sprinkles
+			<br><br>
+			<input type="submit" value="Order" id="btn">
+			
+		</form>
+		<h2 id="ans"></h2>
+		</div>
+	</center>
+	</body>
+
+</html>
